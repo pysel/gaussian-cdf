@@ -31,4 +31,3 @@ make test-paradigm
 Your test will be included to the output.
 
 Note: all outputted values are scaled by 1e18.
-
