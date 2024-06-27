@@ -1,66 +1,34 @@
-## Foundry
+# Paradigm Fellowship Application
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Name: Ruslan Akhtariev
 
-Foundry consists of:
+## Email: <rakhtariev@icloud.com>
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Question
 
-## Documentation
+Implement a maximally optimized gaussian CDF on the EVM for arbitrary 18 decimal fixed point parameters x, μ, σ. Assume -1e20 ≤ μ ≤ 1e20 and 0 < σ ≤ 1e19. Should have an error less than 1e-8 vs errcw/gaussian for all x on the interval [-1e23, 1e23].
 
-https://book.getfoundry.sh/
+## Testing
 
-## Usage
+To test the implementation, run the following command:
 
-### Build
-
-```shell
-$ forge build
+```bash
+make test-paradigm
 ```
 
-### Test
+It runs default tests for the gaussian CDF implementation.
 
-```shell
-$ forge test
+Note: all outputted values are scaled by 1e18.
+
+## Custom Tests
+
+To run custom tests, you may modify the skeleton code in `test/gcdf.t.sol` and run the following command:
+
+```bash
+make test-paradigm
 ```
 
-### Format
+Your test will be included to the output.
 
-```shell
-$ forge fmt
-```
+Note: all outputted values are scaled by 1e18.
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```

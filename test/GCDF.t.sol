@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {GaussianCDF} from "../src/GCDF.sol";
+import {GaussianCDF} from "../src/gcdf.sol";
 
 contract GCDFTest is Test {
     GaussianCDF public gcdf;
@@ -19,9 +19,9 @@ contract GCDFTest is Test {
         int256 mean = 60 * precision;
         int256 stdDev = 1000 * precision;
 
-        console.log("Test Case with These Parameters: ");
+        console.log("\nTest Case with These Parameters: ");
 
-        console.log("\tmean: ", uint256(-mean));
+        console.log("\tmean: ", uint256(mean));
         console.log("\tstdDev: ", uint256(stdDev));
         console.log();
 
@@ -44,7 +44,7 @@ contract GCDFTest is Test {
         mean = -1e19 * precision;
         stdDev = 1000 * precision;
 
-        console.log("Test Case with These Parameters: ");
+        console.log("\nTest Case with These Parameters: ");
 
         console.log("\tmean: ", uint256(-mean));
         console.log("\tstdDev: ", uint256(stdDev));
@@ -64,9 +64,9 @@ contract GCDFTest is Test {
         mean = 60 * precision;
         stdDev = 1e18 * precision;
 
-        console.log("Test Case with These Parameters: ");
+        console.log("\nTest Case with These Parameters: ");
 
-        console.log("\tmean: ", uint256(-mean));
+        console.log("\tmean: ", uint256(mean));
         console.log("\tstdDev: ", uint256(stdDev));
         console.log();
 
@@ -80,5 +80,25 @@ contract GCDFTest is Test {
         result = gcdf.cdf(1000 * precision);
         console.log("\tX is: ", uint256(1000 * precision));
         console.log("\tResult with precision: ", uint256(result));
+
+
+
+        // CUSTOM VALUES
+
+        // mean = <CUSTOM-MEAN> * precision;
+        // stdDev = <CUSTOM-STANDARD-DEVIATION> * precision;
+
+        // console.log("\nTest Case with These Parameters: ");
+
+        // console.log("\tmean: ", uint256(mean)); // NOTE: for correct visualization, if mean is negative, add a negative sign before the mean value
+        // console.log("\tstdDev: ", uint256(stdDev));
+        // console.log();
+
+        // setUpCustom(mean, stdDev);
+
+        // result = gcdf.cdf(<CUSTOM-X> * precision);
+        // console.log("\tX is: ", uint256(<CUSTOM-X> * precision));
+        // console.log("\tResult with precision: ", uint256(result));
+        // console.log();
     }
 }
